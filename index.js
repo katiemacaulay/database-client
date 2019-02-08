@@ -1,7 +1,12 @@
-const create = require("./create");
+const create = require("./createKitten");
 const findAll = require("./find-all");
 const findById = require("./find-by-id");
-const findBy = require("./find-by");
+const findBy = require("./find-by-color");
+const findByName = require("./find-by-name");
+const addMoreKittens = require("./createKitten")
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://birdman:fignewton1@ds143603.mlab.com:43603/my-first-project', {useNewUrlParser: true});
 
 const readline = require('readline').createInterface({
   input: process.stdin,
@@ -10,11 +15,13 @@ const readline = require('readline').createInterface({
 
 printMenu();
 function printMenu(){
-  console.log("1. Create a new thing");
+  console.log("1. Say Hello!");
   console.log("2. Find all things");
   console.log("3. Find a thing by id");
-  console.log("4. Find a thing by");
-  console.log("5. Exit");
+  console.log("4. Find a thing by Color");
+  console.log("5. Find a thing by Name");
+  console.log("6. Add a new Kitten")
+  console.log("7. Exit");
   getMenuInput();
 }
 
@@ -22,7 +29,7 @@ function printMenu(){
 function getMenuInput(){
   readline.question(">>", function(answer) {
     if(answer === "1"){
-      createThing();
+      sayHello();
     }
     if(answer === "2"){
       findAllThings();
@@ -34,6 +41,12 @@ function getMenuInput(){
       findThing();
     }
     if(answer === "5"){
+      findName();
+    }
+    if(answer === "6"){
+      addKitten();
+    }
+    if(answer === "7"){
       readline.close();
       process.stdin.destroy();
     }
@@ -58,19 +71,20 @@ function askForInput(){
     });
 }
 
-function createThing(){
-  askForInput();
+function sayHello(){
+  console.log("Howdy!")
+  printMenu();
 }
 function findAllThings(){
   findAll((data)=>{
-    //show data
+    console.log(data)
     printMenu();
   });
 }
 function findThingById(){
   readline.question("What is the id?", function(answer) {
     findById(answer,(result)=>{
-      //print the result
+      console.log(result)
       printMenu();
     });
   });
@@ -80,9 +94,35 @@ function findThingById(){
 function findThing(){
   readline.question("What name do you want to find?", function(answer) {
     findBy(answer,(result)=>{
-      //print the result
+      console.log(result)
       printMenu();
     });
   });
+
   
+}
+
+function findName(){
+  readline.question("What name do you want to find?", function(answer) {
+    findByName(answer,(result)=>{
+      console.log(result)
+      printMenu();
+    });
+  });
+
+  
+}
+
+function addKitten(){
+  readline.question("Kitten Name:", function(name) {
+    readline.question("Kitten Color:", function(color) {
+      readline.question("Kitten: cuteness (1-10)", function(cute){
+        addMoreKittens(answer,(result)=>{
+          console.log(result)
+          printMenu();
+        });
+      })
+    })
+  })
+
 }

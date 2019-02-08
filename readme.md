@@ -1,22 +1,22 @@
-## Setup
-* Fork, Clone, npm install mongoose
+<!-- ## Setup
+* Fork, Clone, npm install mongoose -->
 
 ## Intro
-We want to build a console app that will allow a user to provide input and save it to a database. The user must also be able to retrieve information to view it.
+<!-- We want to build a console app that will allow a user to provide input and save it to a database. The user must also be able to retrieve information to view it.
 
 We are going to use readline to accept information from the user so we need to be comfortable using this tool.
 
 The user will be presented with a menu with a number representing the options. When the user enters the number and hits enter, your code needs to execute the appropriate task.
 
-Decide what "thing" you want your app to represent. We will keep it simple and only input information for one "thing". products, students, vehicles..etc.
+Decide what "thing" you want your app to represent. We will keep it simple and only input information for one "thing". products, students, vehicles..etc. -->
 
 Replace all instances of "thing" with your choice.
 
 
 ## Database
-* Make sure you have a database setup in mlab
+<!-- * Make sure you have a database setup in mlab
 * Use mongoose to connect to it in index.js
-* Decide on what your collection is going to be
+* Decide on what your collection is going to be -->
 * Use mlab or robo 3t to add some test data
 
 
