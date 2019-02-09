@@ -1,13 +1,12 @@
-const create = require("./createKitten");
+const addMoreKittens = require("./createKitten");
 const findAll = require("./find-all");
 const findById = require("./find-by-id");
-const findBy = require("./find-by-color");
+const findByColor = require("./find-by-color");
 const findByName = require("./find-by-name");
 const addMoreKittens = require("./createKitten")
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://birdman:fignewton1@ds143603.mlab.com:43603/my-first-project', {useNewUrlParser: true});
-
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout
@@ -38,7 +37,7 @@ function getMenuInput(){
       findThingById();
     }
     if(answer === "4"){
-      findThing();
+      findColor();
     }
     if(answer === "5"){
       findName();
@@ -54,21 +53,6 @@ function getMenuInput(){
 }
 let newThing = {
 
-}
-
-function askForInput(){
-    readline.question("What is the name?", function(answer) {
-      newThing.name = answer;
-      readline.question("What is the age?", function(answer) {
-        newThing.age = answer;
-        readline.question("What is the occupation?", function(answer) {
-          newThing.occupation = answer;
-          create(newThing,()=>{
-            printMenu();
-          });
-        });
-      });
-    });
 }
 
 function sayHello(){
@@ -91,10 +75,14 @@ function findThingById(){
 
   
 }
-function findThing(){
-  readline.question("What name do you want to find?", function(answer) {
-    findBy(answer,(result)=>{
-      console.log(result)
+function findColor(){
+  readline.question("What color of cat do you want to find?", function(answer) {
+    findByColor(answer,(result)=>{
+      if(result.length === 0){
+        console.log(answer + ' not found')
+      } else {
+        console.log(result)
+      }
       printMenu();
     });
   });

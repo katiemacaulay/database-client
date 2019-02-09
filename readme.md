@@ -21,24 +21,24 @@ Replace all instances of "thing" with your choice.
 
 
 ## Model
-* Create a model folder and a model file for whatever "thing" you have choosen
-* Create a mongoose schema and model with at least 3 properties
+<!-- * Create a model folder and a model file for whatever "thing" you have choosen
+* Create a mongoose schema and model with at least 3 properties -->
 
 ## Find All
-* In find-all.js, use the mongoose model.find() to retrieve all things from the database. Call done() passing in the data array.
+<!-- * In find-all.js, use the mongoose model.find() to retrieve all things from the database. Call done() passing in the data array.
 * In findAllThings(), in the done callback, loop the data array and console.log out each item in a user friendly manner, don't console.log the entire array
 * Then display the main menu again
-* Bonus: only show 5 items at a time and have the user hit enter to page to the next 5 items.
+* Bonus: only show 5 items at a time and have the user hit enter to page to the next 5 items. -->
 
 ## Find By Id
-* In find-by-id.js, use the model.findById() to retrieve one thing by id. Call the done() callback, passing in the one thing.
+<!-- * In find-by-id.js, use the model.findById() to retrieve one thing by id. Call the done() callback, passing in the one thing.
 * In findThingById, in the done callback, console log out the thing in a user friendly way
-* Then display the main menu again
+* Then display the main menu again -->
 
 ## Find By
-* In find-by.js, use the model.find() to retrieve one thing by a certain property depending on what your thing is. Call the done() callback passing in the one thing
+<!-- * In find-by.js, use the model.find() to retrieve one thing by a certain property depending on what your thing is. Call the done() callback passing in the one thing
 * In findThing(), in the done callback, console log out the thing in a user friendly way
-* Then display the main menu again
+* Then display the main menu again -->
 
 ## Create
 * We want to create a new document in the database by asking the user for the input for it.
